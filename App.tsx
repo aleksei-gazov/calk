@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Input } from './Input';
+import { DataInput } from './DataInput';
 import './style.css';
 
 export default function App() {
   return (
     <div>
-    <Input/>
+    <DataInput/>
     </div>
   );
 }
