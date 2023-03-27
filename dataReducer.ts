@@ -59,7 +59,7 @@ const initialstate: InitialStateType[] = [
   }
 ]
 
-type InitialStateType = {
+export type InitialStateType = {
   type: string
     key: string
     name: string

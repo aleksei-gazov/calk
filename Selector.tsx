@@ -1,13 +1,17 @@
 import * as React from 'react';
 import './style.css';
 
-export const Selector =() => {
+export const Selector =({data}) => {
   return (
     <div>
-     <select name="town" id="s1">
-  <option value="msk" ></option>
-  <option value="spb">Санкт-Петербург</option>
-  <option value="other">другой</option>
+     <select >
+       {data.map(i=> {
+         if(i.type === 'frame') {
+           return (
+<option value={i.name} >{i.name}</option> 
+           )
+         }
+       })}
 </select>
     </div>
   );
