@@ -43,7 +43,7 @@ console.log(materiallFilter)
        <form onSubmit={handleSubmit(onSubmit)}>  
        <div>
 <label>Выберите ширину листа:   </label>
-<select  {...register('width')}>
+<select  {...register('sheetWidth')}>
 {data.map(i=> { 
   if(i.material === materiallFilter) {
     return (
