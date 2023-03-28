@@ -1,3 +1,5 @@
+import { Dispatch } from "react"
+// import { configAIP } from "./api"
 
 
 const initialstate: InitialStateType[] = [
@@ -73,3 +75,16 @@ export const configReducer = (state= initialstate, action) => {
     default: return state
   }
 }
+// action
+export const setConfig = (config: InitialStateType[]) => ({
+  type: 'GET_CONFIG',
+  payload: {
+config
+  }
+})
+
+// export const getConfig = () => async(dispatch: Dispatch<any>) => {
+//   let response = await configAIP.getConfigData()
+//   dispatch(setConfig(response.data))
+// }
+

@@ -1,3 +1,4 @@
+import { Dispatch } from "redux"
 
 
 export type InitialDataStateType = {
@@ -149,4 +150,23 @@ export const dataReducer = (state = initialstate, action: any): InitialDataState
 
       default: return state
   }
+}
+
+//actions
+export const getPrice = (data: InitialDataStateType[]) => ({
+  type: 'GET_PRICE',
+  payload: {
+    data
+  }
+})
+
+//thunk
+
+export const getPriceThunk = () => async(dispatch: Dispatch) => {
+  try {
+    // let res = await 
+  } catch (err) {
+
+  }
+ 
 }

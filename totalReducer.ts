@@ -1,5 +1,7 @@
 
 export type initialTotalStateType = {
+  productArea: number
+  cellSize: null | string
   name: null | string 
 units: null | string
 quantity: null | number
@@ -7,6 +9,8 @@ sum: null | number
 }
 
 let initialState: initialTotalStateType[] = [{
+  productArea: 0,
+  cellSize: null,
   name: null, 
 units: null,
 quantity: null,
