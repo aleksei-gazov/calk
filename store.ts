@@ -1,8 +1,10 @@
 import { combineReducers, legacy_createStore } from "redux";
-import { dataReducer } from "./dataReducer";
+import { configReducer } from "./configReducer";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import { dataReducer } from "./dataReducer";
 
 const rootReducer = combineReducers ({
+  config: configReducer,
   data: dataReducer
 })
 

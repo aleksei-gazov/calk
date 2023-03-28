@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './style.css';
 
+
 type InpytPropsType = {
   type: string;
   min: number
@@ -8,9 +9,13 @@ type InpytPropsType = {
 }
 
 export const Input =() => {
+
+
+
   return (
     <div>
-      <input type={'number'} min={10} max={20} />
+     
+      {/* <input type={'number'} min={10} max={20} /> */}
     </div>
   );
 }
