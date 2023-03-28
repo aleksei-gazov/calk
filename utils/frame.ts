@@ -5,14 +5,11 @@ let selfTappingScrews = 0
 let lengthPipe = 0
 let sheets = 0
 
-export const productDimensions = (roofWidth: number, length: number, ) => {
- productArea = roofWidth * length
-
+export const productDimensions = (roofWidth: number, roofLength: number, ) => {
+ productArea = roofWidth * roofLength
 }
 export const numberOfSheets = (roofWidth: number, length: number, sheetWidth: number) => {  
-  console.log()
   sheets = ((Math.ceil(roofWidth/sheetWidth)) * (Math.ceil(length/1)) )
-  console.log(((Math.ceil(roofWidth/sheetWidth)) * (Math.ceil(length/1))))
 }
 export const numberOfScrews = ( material: string ="metal") => {
   if (material === "metal") {

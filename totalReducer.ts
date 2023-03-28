@@ -1,7 +1,18 @@
 
+export type initialTotalStateType = {
+  name: null | string 
+units: null | string
+quantity: null | number
+sum: null | number
+}
 
+let initialState: initialTotalStateType[] = [{
+  name: null, 
+units: null,
+quantity: null,
+sum: null,
+}]
 
-let initialState = []
 
 export const totalReducer = (state = initialState, action) => {
   switch(action.type) {
@@ -9,10 +20,10 @@ export const totalReducer = (state = initialState, action) => {
   }
 }
 
-export const toGetDataAC = () => ({
+export const toGetDataAC = (total: initialTotalStateType) => ({
   type: TotalAC.TO_GET_DATA,
   payload: {
-    
+total
   }
 })
 

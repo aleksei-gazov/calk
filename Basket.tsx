@@ -1,6 +1,9 @@
 import * as React from 'react';
+import { useAppSelector } from './store';
+import { initialTotalStateType } from './totalReducer';
 
 const Basket = () => {
+  const total = useAppSelector<initialTotalStateType[]>(state=>state.total)
     return (
         <div>
            <h1>Basket</h1>
@@ -15,14 +18,14 @@ const Basket = () => {
 	</thead>
 	<tbody>
 		<tr>
-			<td>Gloria</td>
+			<td>{total[0].name}</td>
 			<td>Reeves</td>
 			<td>67439</td>
 			<td>10/18/1985</td>
 		</tr>
-		...
 	</tbody>
 </table>
+Итого:
         </div>
     );
 };

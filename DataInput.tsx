@@ -6,7 +6,7 @@ import { useAppSelector } from './store';
 import './style.css';
 import {useForm} from 'react-hook-form';
 import { InitialDataStateType } from './dataReducer';
-import { productDimensions, numberOfSheets } from './utils/frame';
+import { productDimensions, numberOfSheets, numberOfScrews, pipeQuantity } from './utils/frame';
 
 export const DataInput = () => {
   const config = useAppSelector<InitialStateType[]>(state=> state.config)
@@ -17,6 +17,8 @@ const [materiallFilter, setMateriallFilter] = React.useState('')
     console.log('data: ', data)
     productDimensions(data.roofWidth, data.roofLength)
     numberOfSheets(data.roofWidth, data.roofLength, data.sheetWidth)
+    numberOfScrews(materiallFilter)
+    pipeQuantity(data.roofWidth, data.roofLength, 1.2, 0.3)
   }
 let set =new Set( data.map(i=> {
   if(i.type === 'list') {
@@ -28,7 +30,6 @@ let arr =  [...set]
 
 const onSelector = (e) => {
   setMateriallFilter(e.currentTarget.value)
-  // console.log(e.currentTarget.value)
 }
 console.log(materiallFilter)
   return (
@@ -71,6 +72,18 @@ console.log(materiallFilter)
 <select  {...register('frame')}>
 {config.map(i=> {
          if(i.type === 'frame') {
+           return (
+<option  value={i.name} >{i.name}</option> 
+           )
+         }
+       })}
+</select>
+</div>
+<div>
+<label>Выберети размер трубы:   </label>
+<select  {...register('pipeSize')}>
+{data.map(i=> {
+         if(i.type === "pipe") {
            return (
 <option  value={i.name} >{i.name}</option> 
            )
