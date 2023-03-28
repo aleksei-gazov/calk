@@ -6,6 +6,7 @@ import { useAppSelector } from './store';
 import './style.css';
 import {useForm} from 'react-hook-form';
 import { InitialDataStateType } from './dataReducer';
+import { productDimensions, numberOfSheets } from './utils/frame';
 
 export const DataInput = () => {
   const config = useAppSelector<InitialStateType[]>(state=> state.config)
@@ -14,6 +15,8 @@ const [materiallFilter, setMateriallFilter] = React.useState('')
   const { register, handleSubmit } = useForm()
   const onSubmit = data => {
     console.log('data: ', data)
+    productDimensions(data.roofWidth, data.roofLength)
+    numberOfSheets(data.roofWidth, data.roofLength, data.sheetWidth)
   }
 let set =new Set( data.map(i=> {
   if(i.type === 'list') {
@@ -82,7 +85,7 @@ console.log(materiallFilter)
   min={config[1].min}
   max={config[1].max}
   name="example"
-  {...register('roof width')}
+  {...register('roofWidth')}
 />
          </div>
 <div>
@@ -92,7 +95,7 @@ console.log(materiallFilter)
   min={config[0].min}
   max={config[0].max}
   name="exampleRequired"
-  {...register('roof length')}
+  {...register('roofLength')}
 />
 </div>
 <div>
