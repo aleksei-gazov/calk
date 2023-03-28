@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { InitialStateType } from './configReducer';
+import { InitialStateType, getConfig } from './configReducer';
 import { Input } from './Input';
 import { Selector } from './Selector';
-import { useAppSelector } from './store';
+import { useAppDispatch, useAppSelector } from './store';
 import './style.css';
 import {useForm} from 'react-hook-form';
 import { InitialDataStateType } from './dataReducer';
@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 //https://stackblitz.com/edit/react-hook-form-typescript?file=App.tsx
 
 export const DataInput = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const config = useAppSelector<InitialStateType[]>(state=> state.config)
   const data = useAppSelector<InitialDataStateType[]>(state=> state.data)
 const [materiallFilter, setMateriallFilter] = React.useState('')
@@ -40,12 +40,8 @@ console.log(materiallFilter)
 
 
 React.useEffect(()=>{
-
+dispatch(getConfig())
 },[])
-
-
-
-
 
 
   return (

@@ -1,8 +1,9 @@
-import { combineReducers, legacy_createStore } from "redux";
+import { AnyAction,combineReducers, legacy_createStore, applyMiddleware } from "redux";
 import { configReducer } from "./configReducer";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import { dataReducer } from "./dataReducer";
 import { totalReducer } from "./totalReducer";
+import thunk, {ThunkDispatch} from 'redux-thunk';
 
 const rootReducer = combineReducers ({
   config: configReducer,
@@ -10,7 +11,10 @@ const rootReducer = combineReducers ({
   total: totalReducer,
 })
 
-export const store = legacy_createStore(rootReducer)
+export const store = legacy_createStore(rootReducer, applyMiddleware(thunk))
 
 export type AppRootStateType = ReturnType<typeof rootReducer>
 export const useAppSelector: TypedUseSelectorHook<AppRootStateType> = useSelector
+export type StoreType = typeof store
+export type ThunkDispatchType = ThunkDispatch<StoreType, any, AnyAction>
+export const useAppDispatch = () => useDispatch<ThunkDispatchType>()

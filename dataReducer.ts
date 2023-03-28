@@ -147,7 +147,8 @@ const initialstate: InitialDataStateType[] = [
 
 export const dataReducer = (state = initialstate, action: any): InitialDataStateType[] => {
   switch (action.type) {
-
+case 'GET_PRICE':
+    return state
       default: return state
   }
 }

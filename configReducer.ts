@@ -83,8 +83,8 @@ config
   }
 })
 
-// export const getConfig = () => async(dispatch: Dispatch<any>) => {
-//   let response = await configAIP.getConfigData()
-//   dispatch(setConfig(response.data))
-// }
+export const getConfig = () => async(dispatch: Dispatch<any>) => {
+ // let response = await configAIP.getConfigData()
+ // dispatch(setConfig(response.data))
+}
 
