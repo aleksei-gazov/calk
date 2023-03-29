@@ -4,11 +4,13 @@ import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import { dataReducer } from "./dataReducer";
 import { totalReducer } from "./totalReducer";
 import thunk, {ThunkDispatch} from 'redux-thunk';
+import { tableReducer } from "./utils/table-reducer";
 
 const rootReducer = combineReducers ({
   config: configReducer,
   data: dataReducer,
   total: totalReducer,
+  table: tableReducer,
 })
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk))

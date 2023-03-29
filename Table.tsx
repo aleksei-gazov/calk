@@ -2,8 +2,8 @@ import * as React from 'react';
 
 
 
-export const Table = ({totalSum, total}) => {
- 
+export const Table = ({table, total}) => {
+  // const totalSum = total?.reduce((acc, i)=>acc + +i.sum, 0)
   return (
     <div>
      <table >
@@ -29,7 +29,7 @@ export const Table = ({totalSum, total}) => {
 			})}		
 	</tbody>
 </table>
-Итого: {totalSum}
+{/* Итого: {totalSum} */}
     </div>
   );
 }
