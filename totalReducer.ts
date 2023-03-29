@@ -8,18 +8,18 @@ let initialState: initialTotalStateType = {}
 export const totalReducer = (state = initialState, action: ActionType) => {
   switch(action.type) {
     case 'ADD_TABLE':
-    // console.log(action.payload.total)
+     console.log(action.payload.total1)
       return {...state, [action.payload.tableId] : [action.payload.total, action.payload.total1, action.payload.total2]}
     default: return state
   }
 }
 
-export const toGetDataAC = (total: initialTotalStateType) => ({
-  type: TotalAC.TO_GET_DATA,
-  payload: {
-total
-  }
-})
+// export const toGetDataAC = (total: initialTotalStateType) => ({
+//   type: TotalAC.TO_GET_DATA,
+//   payload: {
+// total
+//   }
+// })
 
 //types
 export enum TotalAC {
