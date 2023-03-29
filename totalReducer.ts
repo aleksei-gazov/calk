@@ -1,25 +1,21 @@
 
 export type initialTotalStateType = {
-  productArea: number
-  cellSize: null | string
+  productArea?: number
+  cellSize?: null | string
   name: null | string 
-units: null | string
+unit: null | string
 quantity: null | number
 sum: null | number
 }
 
-let initialState: initialTotalStateType[] = [{
-  productArea: 0,
-  cellSize: null,
-  name: null, 
-units: null,
-quantity: null,
-sum: null,
-}]
+let initialState: initialTotalStateType[] = []
 
 
 export const totalReducer = (state = initialState, action) => {
   switch(action.type) {
+    case TotalAC.TO_GET_DATA:
+    console.log(action.payload.total)
+      return [...state, action.payload.total]
     default: return state
   }
 }

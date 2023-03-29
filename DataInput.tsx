@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from './store';
 import './style.css';
 import {useForm} from 'react-hook-form';
 import { InitialDataStateType } from './dataReducer';
-import { productDimensions, numberOfSheets, numberOfScrews, pipeQuantity } from './utils/frame';
+import { productDimensions, numberOfSheets, numberOfScrews, pipeQuantity, sumSheets } from './utils/frame';
 import { useDispatch } from 'react-redux';
 
 //https://stackblitz.com/edit/react-hook-form-typescript?file=App.tsx
@@ -17,12 +17,14 @@ export const DataInput = () => {
   const data = useAppSelector<InitialDataStateType[]>(state=> state.data)
 const [materiallFilter, setMateriallFilter] = React.useState('')
   const { register, handleSubmit } = useForm()
-  const onSubmit = data => {
-    console.log('data: ', data)
-    productDimensions(data.roofWidth, data.roofLength)
-    numberOfSheets(data.roofWidth, data.roofLength, data.sheetWidth)
-    numberOfScrews(materiallFilter)
-    pipeQuantity(data.roofWidth, data.roofLength, 1.2, 0.3)
+  const onSubmit = dataForm => {
+    // console.log('data: ', dataForm)
+    productDimensions(dataForm.roofWidth, dataForm.roofLength)
+    numberOfSheets(dataForm.roofWidth, dataForm.roofLength, dataForm.sheetWidth)
+    sumSheets(data, dispatch)
+
+    numberOfScrews(data, dataForm.roofWidth, dataForm.roofLength, materiallFilter, dispatch)
+    pipeQuantity(dataForm.roofWidth, dataForm.roofLength, 1.2, 0.3)
   }
 let set =new Set( data.map(i=> {
   if(i.type === 'list') {
@@ -33,6 +35,7 @@ set.delete(undefined)
 let arr =  [...set]
 
 const onSelector = (e) => {
+  // dispatch()
   setMateriallFilter(e.currentTarget.value)
 }
 console.log(materiallFilter)
@@ -43,29 +46,34 @@ React.useEffect(()=>{
 dispatch(getConfig())
 },[])
 
-
+let d
+let valueSheet = data.map(i=> { 
+  if(i.material === materiallFilter) {
+    d = i.width
+    return (
+      <option  value={i. width} >{i. width}</option> 
+                 )}        
+       })
+// console.log( d)
   return (
     <div>
      <div>
 <label>Выберите тип покрытия:   </label>
 <select onChange={onSelector}>
-{arr.map(i=> { 
+<option  value={'plastic'} >Пластик</option> 
+<option  value={'metal'} >Металл</option> 
+{/* {arr.map(i=> { 
            return (
 <option  value={i} >{i}</option> 
            )
-       })}
+       })} */}
 </select>
 </div>
        <form onSubmit={handleSubmit(onSubmit)}>  
        <div>
 <label>Выберите ширину листа:   </label>
-<select  {...register('sheetWidth')}>
-{data.map(i=> { 
-  if(i.material === materiallFilter) {
-    return (
-      <option  value={i. width} >{i. width}</option> 
-                 )}        
-       })}
+<select  {...register('sheetWidth')} >
+{valueSheet}
 </select>
 </div>
        <div>
@@ -74,14 +82,14 @@ dispatch(getConfig())
 {data.map(i=> { 
   if(i.material === materiallFilter) {
     return (
-      <option  value={i.thickness} >{i.thickness}</option> 
+      <option   value={i.thickness} >{i.thickness}</option> 
                  )}        
        })}
 </select>
 </div>
 <div>
 <label>Выберети тип каркаса:   </label>
-<select  {...register('frame')}>
+<select  {...register('frame')} >
 {config.map(i=> {
          if(i.type === 'frame') {
            return (
@@ -117,6 +125,7 @@ dispatch(getConfig())
 <label>Длинна </label>
 <input
   type="number"
+  //value= {config[0].min}
   min={config[0].min}
   max={config[0].max}
   name="exampleRequired"
