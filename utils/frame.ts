@@ -47,7 +47,7 @@ export const sumSheets = (data, dispatch)=> {
    let mat = data.find((i)=> i.type === 'list')
    materialData.name = mat.name
    materialData.unit = mat.unit
-    materialData.sum = mat.price * materialData.quantity
+    materialData.sum = (mat.price * materialData.quantity).toFixed(2)
     dispatch(toGetDataAC(materialData))
 }
 
