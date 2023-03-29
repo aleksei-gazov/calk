@@ -24,7 +24,7 @@ const [materiallFilter, setMateriallFilter] = React.useState('')
     sumSheets(data, dispatch)
 
     numberOfScrews(data, dataForm.roofWidth, dataForm.roofLength, materiallFilter, dispatch)
-    pipeQuantity(dataForm.roofWidth, dataForm.roofLength, 1.2, 0.3)
+    pipeQuantity(data, dataForm.roofWidth, dataForm.roofLength, 1.2, 0.3, dispatch)
   }
 let set =new Set( data.map(i=> {
   if(i.type === 'list') {
@@ -38,7 +38,7 @@ const onSelector = (e) => {
   // dispatch()
   setMateriallFilter(e.currentTarget.value)
 }
-console.log(materiallFilter)
+// console.log(materiallFilter)
 
 
 

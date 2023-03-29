@@ -4,7 +4,7 @@ import { initialTotalStateType } from './totalReducer';
 
 const Basket = () => {
   const total = useAppSelector<initialTotalStateType[]>(state=>state.total)
-	 console.log(total)
+	//  console.log(total)
     return (
         <div>
            <h1>Basket</h1>

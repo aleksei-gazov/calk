@@ -14,7 +14,7 @@ let initialState: initialTotalStateType[] = []
 export const totalReducer = (state = initialState, action) => {
   switch(action.type) {
     case TotalAC.TO_GET_DATA:
-    console.log(action.payload.total)
+    // console.log(action.payload.total)
       return [...state, action.payload.total]
     default: return state
   }
