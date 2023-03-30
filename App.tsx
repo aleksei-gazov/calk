@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Total from './Total';
 import { DataInput } from './DataInput';
-import s from './style.css';
+import './style.css';
+import { Basket } from './Basket';
 
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
     <div className='container'>
           <DataInput/>
       <Total/>
+      <Basket/>
     </div>
   );
 }

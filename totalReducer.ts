@@ -6,11 +6,11 @@ let initialState: initialTotalStateType = {}
 
 
 export const totalReducer = (state = initialState, action: ActionType) => {
-  console.log(state)
+  // console.log(state)
   switch(action.type) {
     case 'ADD_TABLE':
     //  console.log(action.payload.tableId)
-      return {...state, [action.payload.tableId]: [action.payload.total, action.payload.total1, action.payload.total2]}
+      return { [action.payload.tableId]: [action.payload.total, action.payload.total1, action.payload.total2]}
     default: return state
   }
 }

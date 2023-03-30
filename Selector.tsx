@@ -13,7 +13,7 @@ export const Selector =({data, onSelectValue}) => {
 
 const onBlurHandler = (e) => {
   // onSelectValue(e.currentTarget.value)
-  console.log(e)
+  // console.log(e)
 }
 
   return (

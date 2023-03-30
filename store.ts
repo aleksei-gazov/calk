@@ -5,12 +5,14 @@ import { dataReducer } from "./dataReducer";
 import { totalReducer } from "./totalReducer";
 import thunk, {ThunkDispatch} from 'redux-thunk';
 import { tableReducer } from "./utils/table-reducer";
+import { basketReducer } from "./basket-reducer";
 
 const rootReducer = combineReducers ({
   config: configReducer,
   data: dataReducer,
   total: totalReducer,
   table: tableReducer,
+  basket: basketReducer,
 })
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk))

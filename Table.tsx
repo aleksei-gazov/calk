@@ -1,21 +1,20 @@
 import * as React from 'react';
-
+import { addBasket } from './basket-reducer';
+import { useAppDispatch, useAppSelector } from './store';
 
 
 export const Table = ({table, total}) => {
+	const dispatch = useAppDispatch()
+	// console.log(Array.isArray(total))
+const addBasketHandler = () => {
+	dispatch(addBasket(total))
+}
+
+
    const totalSum = total?.reduce((acc, i)=>acc + +i.sum, 0)
   return (
     <div>
-     <table >
-	<thead>
-		<tr>
-			<th>Наименование</th>
-			<th>ед.</th>
-			<th>кол-во</th>
-			<th>сумма</th>
-		</tr>
-	</thead>
-	<tbody>
+    
 			{total?.map((i)=> {
 				return (
 <tr style={i.name === 'Лист-1 0.5 ширина 1.8м' ? {backgroundColor: 'red'} :{}}>
@@ -27,9 +26,11 @@ export const Table = ({table, total}) => {
 				)
 					
 			})}		
-	</tbody>
-</table>
+	
 Итого: {totalSum}
+<div>
+<button onClick={addBasketHandler}>В корзину</button>
+</div>
     </div>
   );
 }

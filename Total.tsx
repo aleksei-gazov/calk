@@ -7,22 +7,35 @@ import { InitialTableStateType } from './utils/table-reducer';
 const Total = () => {
   const total = useAppSelector<initialTotalStateType>(state=>state.total)
   const table = useAppSelector<InitialTableStateType[]>(state=>state.table)
-	 console.log(total)
+	//  console.log(total)
 	
 	
     return (
         <div>
+						<table >
+									<thead>
+										<tr>
+											<th>Наименование</th>
+											<th>ед.</th>
+											<th>кол-во</th>
+											<th>сумма</th>
+										</tr>
+									</thead>
+									<tbody>
            <h1>Total</h1>
 					 {table.map(i=> {
 						    let allTotal = total[i.tableId]
 								return (
+								
 												<Table
 												table={i}
 												 total={allTotal}
 												 />
+												
 								)
 					 })}
-          
+           </tbody>
+</table>
         </div>
     );
 };
