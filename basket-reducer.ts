@@ -6,9 +6,10 @@ let initialState: InitialBasketStateType = {
 
 
 export const basketReducer = (state = initialState, action: ActionType) => {
-  console.log(state)
+   console.log(state)
   switch(action.type) {
     case BasketAC.ADD_BASKET:
+      // console.log(action.payload.total)
       return {...state, basket: [...state.basket, ...action.payload.total]}
     case BasketAC.IS_BASKET:
       return {...state, isBasket: action.value}
