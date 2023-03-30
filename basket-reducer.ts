@@ -10,6 +10,8 @@ export const basketReducer = (state = initialState, action: ActionType) => {
   switch(action.type) {
     case BasketAC.ADD_BASKET:
       return {...state, basket: [...state.basket, ...action.payload.total]}
+    case BasketAC.IS_BASKET:
+      return {...state, isBasket: !isBasket}
     default: return state
   }
 }
@@ -20,10 +22,14 @@ export const addBasket = (total: BasketStateType[]) => ({
 total
   }
 } as const)
+export const isBasket = () => ({
+  type: BasketAC.IS_BASKET,
+} as const)
 
 //types
 export enum BasketAC {
-  ADD_BASKET = 'ADD_BASKET'
+  ADD_BASKET = 'ADD_BASKET',
+  IS_BASKET = 'IS_BASKET'
 } 
 
 export type InitialBasketStateType = {
@@ -40,6 +46,7 @@ sum: null | number
 }
 
 export type AddBasket = ReturnType<typeof addBasket>
+export type IsBasket = ReturnType<typeof isBasket>
 
 
-type ActionType = AddBasket
+type ActionType = AddBasket | IsBasket
