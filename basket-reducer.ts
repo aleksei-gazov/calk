@@ -11,7 +11,7 @@ export const basketReducer = (state = initialState, action: ActionType) => {
     case BasketAC.ADD_BASKET:
       return {...state, basket: [...state.basket, ...action.payload.total]}
     case BasketAC.IS_BASKET:
-      return {...state, isBasket: !isBasket}
+      return {...state, isBasket: action.value}
     default: return state
   }
 }
@@ -22,8 +22,9 @@ export const addBasket = (total: BasketStateType[]) => ({
 total
   }
 } as const)
-export const isBasket = () => ({
+export const isBasket = (value: boolean) => ({
   type: BasketAC.IS_BASKET,
+  value
 } as const)
 
 //types

@@ -1,13 +1,19 @@
 import * as React from 'react';
 import { BasketStateType } from './basket-reducer';
-import { useAppSelector } from './store';
+import { useAppDispatch, useAppSelector } from './store';
+import {  isBasket } from './basket-reducer';
 
 
 export const Basket =() => {
  const basketTotal = useAppSelector<BasketStateType[]>(state=> state.basket.basket)
+ const dispatch = useAppDispatch()
  console.log(Array.isArray(basketTotal))
+ const inBasketHandler = () => {
+  dispatch(isBasket(false))
+  }
   return (
     <div className='container'>
+      	<button onClick={inBasketHandler}>К рассчетам</button>
        <table >
 	<thead>
 		<tr>

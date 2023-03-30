@@ -16,7 +16,7 @@ const addBasketHandler = () => {
 }
 
 const inBasketHandler = () => {
-dispatch(isBasket())
+dispatch(isBasket(true))
 }
 	
     return (
