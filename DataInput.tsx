@@ -57,6 +57,8 @@ let valueSheet = data.map(i=> {
 // console.log( d)
   return (
     <div>
+      <h3>Введите необходимые данные <br/>
+         и мы зделаем для вас рассчет:</h3>
      <div>
 <label>Выберите тип покрытия:   </label>
 <select onChange={onSelector}>
@@ -92,18 +94,6 @@ let valueSheet = data.map(i=> {
 <select  {...register('frame')} >
 {config.map(i=> {
          if(i.type === 'frame') {
-           return (
-<option  value={i.name} >{i.name}</option> 
-           )
-         }
-       })}
-</select>
-</div>
-<div>
-<label>Выберети размер трубы:   </label>
-<select  {...register('pipeSize')}>
-{data.map(i=> {
-         if(i.type === "pipe") {
            return (
 <option  value={i.name} >{i.name}</option> 
            )

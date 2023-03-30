@@ -1,16 +1,16 @@
 import * as React from 'react';
-import Basket from './Basket';
+import Total from './Total';
 import { DataInput } from './DataInput';
-import './style.css';
+import s from './style.css';
 
 
 export default function App() {
  
 
   return (
-    <div>
-      <Basket/>
-    <DataInput/>
+    <div className='container'>
+          <DataInput/>
+      <Total/>
     </div>
   );
 }

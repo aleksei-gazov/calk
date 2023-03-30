@@ -4,7 +4,7 @@ import { Table } from './Table';
 import { initialTotalStateType } from './totalReducer';
 import { InitialTableStateType } from './utils/table-reducer';
 
-const Basket = () => {
+const Total = () => {
   const total = useAppSelector<initialTotalStateType>(state=>state.total)
   const table = useAppSelector<InitialTableStateType[]>(state=>state.table)
 	 console.log(total)
@@ -12,7 +12,7 @@ const Basket = () => {
 	
     return (
         <div>
-           <h1>Basket</h1>
+           <h1>Total</h1>
 					 {table.map(i=> {
 						    let allTotal = total[i.tableId]
 								return (
@@ -27,4 +27,4 @@ const Basket = () => {
     );
 };
 
-export default Basket;
+export default Total;
