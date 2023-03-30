@@ -4,7 +4,7 @@ import { useAppSelector } from './store';
 
 
 export const Basket =() => {
- const basketTotal = useAppSelector<BasketStateType[]>(state=> state.basket)
+ const basketTotal = useAppSelector<BasketStateType[]>(state=> state.basket.basket)
  console.log(Array.isArray(basketTotal))
   return (
     <div className='container'>

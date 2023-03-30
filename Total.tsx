@@ -1,14 +1,19 @@
 import * as React from 'react';
-import { useAppSelector } from './store';
 import { Table } from './Table';
 import { initialTotalStateType } from './totalReducer';
 import { InitialTableStateType } from './utils/table-reducer';
+import { addBasket } from './basket-reducer';
+import { useAppDispatch, useAppSelector } from './store';
 
 const Total = () => {
   const total = useAppSelector<initialTotalStateType>(state=>state.total)
   const table = useAppSelector<InitialTableStateType[]>(state=>state.table)
 	//  console.log(total)
-	
+	const dispatch = useAppDispatch()
+	// console.log(Array.isArray(total))
+const addBasketHandler = () => {
+	dispatch(addBasket(total))
+}
 	
     return (
         <div>
@@ -36,6 +41,9 @@ const Total = () => {
 					 })}
            </tbody>
 </table>
+<div>
+<button onClick={addBasketHandler}>В корзину</button>
+</div>
         </div>
     );
 };

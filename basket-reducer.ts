@@ -1,12 +1,15 @@
 
-let initialState: BasketStateType[] = []
+let initialState: InitialBasketStateType = {
+  basket: [],
+  isBasket: false,
+}
 
 
 export const basketReducer = (state = initialState, action: ActionType) => {
   console.log(state)
   switch(action.type) {
     case BasketAC.ADD_BASKET:
-      return [...state, ...action.payload.total]
+      return {...state, basket: [...state.basket, ...action.payload.total]}
     default: return state
   }
 }
@@ -23,6 +26,10 @@ export enum BasketAC {
   ADD_BASKET = 'ADD_BASKET'
 } 
 
+export type InitialBasketStateType = {
+  basket: BasketStateType[] 
+  isBasket: boolean 
+}
 export type BasketStateType = {
   productArea?: number
   cellSize?: null | string
