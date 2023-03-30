@@ -15,7 +15,6 @@ const Total = () => {
 	let allTotal
 const addBasketHandler = () => {
 	 dispatch(addBasket(allTotal))
-	 dispatch(addBasket(allTotal))
 }
 
 const inBasketHandler = () => {
