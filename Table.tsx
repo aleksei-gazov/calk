@@ -6,7 +6,7 @@ export const Table = ({table, total}) => {
 
 
 
-   const totalSum = total?.reduce((acc, i)=>acc + +i.sum, 0)
+ 
   return (
     <div>
     
@@ -22,7 +22,7 @@ export const Table = ({table, total}) => {
 					
 			})}		
 	
-Итого: {totalSum}
+
 
     </div>
   );
