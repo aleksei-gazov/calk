@@ -12,8 +12,10 @@ const Total = () => {
 	const dispatch = useAppDispatch()
 	  // const totalSum = total?.reduce((acc, i)=>acc + +i.sum, 0)
 	// console.log(Array.isArray(total))
+	let allTotal
 const addBasketHandler = () => {
-	dispatch(addBasket(total))
+	 dispatch(addBasket(allTotal))
+	 dispatch(addBasket(allTotal))
 }
 
 const inBasketHandler = () => {
@@ -36,7 +38,7 @@ dispatch(isBasket(true))
 									<tbody>
           
 					 {table.map(i=> {
-						    let allTotal = total[i.tableId]
+						     allTotal = total[i.tableId]
 								return (
 								
 												<Table

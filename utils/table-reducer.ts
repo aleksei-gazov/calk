@@ -9,6 +9,9 @@ export const tableReducer = (state = initialstate, action: ActionType): InitialT
   switch (action.type) {
 case 'ADD_TABLE':
     return [...state,  {tableId: action.payload.tableId}]
+case 'DELETE_CALCULATION':
+  let stateCopy = state
+    return stateCopy.splice(0,stateCopy.length)
       default: return state
   }
 }
@@ -23,10 +26,14 @@ export const getPrice = (total: initialTotalStateType, total1: initialTotalState
     total2,
   }
 } as const)
+export const deleteCalculation = () => ({
+  type: 'DELETE_CALCULATION',
+} as const)
 
 //types
 export type InitialTableStateType = {
   tableId: string
 }
  export type GetPriceType = ReturnType<typeof getPrice>
-type ActionType =  GetPriceType
+ export type DeleteCalculationType = ReturnType<typeof deleteCalculation>
+type ActionType =  GetPriceType | DeleteCalculationType
