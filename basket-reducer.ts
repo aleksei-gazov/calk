@@ -5,11 +5,11 @@ let initialState: InitialBasketStateType = {
 }
 
 
-export const basketReducer = (state = initialState, action: ActionType) => {
+export const basketReducer = (state = initialState, action: ActionType): InitialBasketStateType => {
    console.log(state)
   switch(action.type) {
-    case BasketAC.ADD_BASKET:
-       console.log(Array.isArray(action.payload.total))
+    case 'ADD_BASKET':
+       console.log(action.payload.total)
       return {...state, basket: [...state.basket, ...action.payload.total]}
     case BasketAC.IS_BASKET:
       return {...state, isBasket: action.value}
@@ -18,7 +18,7 @@ export const basketReducer = (state = initialState, action: ActionType) => {
 }
 
 export const addBasket = (total: BasketStateType[]) => ({
-  type: BasketAC.ADD_BASKET,
+  type: 'ADD_BASKET',
   payload: {
 total
   }

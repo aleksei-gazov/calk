@@ -7,14 +7,15 @@ import { useAppDispatch, useAppSelector } from './store';
 
 const Total = () => {
   const total = useAppSelector<initialTotalStateType>(state=>state.total)
-  const table = useAppSelector<InitialTableStateType[]>(state=>state.table)
+  const table = useAppSelector<InitialTableStateType>(state=>state.table)
 	//  console.log(total)
 	const dispatch = useAppDispatch()
 	  // const totalSum = total?.reduce((acc, i)=>acc + +i.sum, 0)
 	// console.log(Array.isArray(total))
-	let allTotal
+	let allTotal = total[table.tableId]
 const addBasketHandler = () => {
 	 dispatch(addBasket(allTotal))
+	 console.log('Total')
 }
 
 const inBasketHandler = () => {
@@ -25,30 +26,20 @@ dispatch(isBasket(true))
         <div>
 					<button onClick={inBasketHandler}>Корзина</button>
 					<h1>Total</h1>
-						<table >
-									<thead>
-										<tr>
-											<th>Наименование</th>
-											<th>ед.</th>
-											<th>кол-во</th>
-											<th>сумма</th>
-										</tr>
-									</thead>
-									<tbody>
+					
           
-					 {table.map(i=> {
-						     allTotal = total[i.tableId]
+					 {/* {table.map(i=> {
+						     allTotal = total[i.tableId] */}
 								return (
 								
 												<Table
-												table={i}
+												table={table.tableId}
 												 total={allTotal}
 												 />
 												
 								)
-					 })}
-           </tbody>
-</table>
+					 {/* })}
+         */}
 {/* Итого: {totalSum} */}
 <div>
 <button onClick={addBasketHandler}>В корзину</button>

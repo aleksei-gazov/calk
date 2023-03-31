@@ -1,4 +1,4 @@
-import { toGetDataAC } from "../totalReducer"
+// import { toGetDataAC } from "../totalReducer"
 import { getPrice } from "./table-reducer"
 
 

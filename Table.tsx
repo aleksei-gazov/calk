@@ -9,7 +9,16 @@ export const Table = ({table, total}) => {
  
   return (
     <div>
-    
+    	<table >
+									<thead>
+										<tr>
+											<th>Наименование</th>
+											<th>ед.</th>
+											<th>кол-во</th>
+											<th>сумма</th>
+										</tr>
+									</thead>
+									<tbody>
 			{total?.map((i)=> {
 				return (
 <tr style={i.name === 'Лист-1 0.5 ширина 1.8м' ? {backgroundColor: 'red'} :{}}>
@@ -22,7 +31,8 @@ export const Table = ({table, total}) => {
 					
 			})}		
 	
-
+	</tbody>
+</table>
 
     </div>
   );
