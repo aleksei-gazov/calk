@@ -2,15 +2,18 @@ import { GetPriceType } from "./utils/table-reducer"
 
 
 
-let initialState: initialTotalStateType = {}
+let initialState: initialTotalStateType = {
+
+}
 
 
-export const totalReducer = (state = initialState, action: ActionType) => {
-  // console.log(state)
+export const totalReducer = (state = initialState, action: ActionType): initialTotalStateType => {
+   console.log(state)
   switch(action.type) {
     case 'ADD_TABLE':
+      console.log(action.payload.total)
     //  console.log(action.payload.tableId)
-      return { [action.payload.tableId]: [action.payload.total, action.payload.total1, action.payload.total2]}
+      return { [action.payload.Id]: [action.payload.total, action.payload.total1, action.payload.total2]}
     default: return state
   }
 }

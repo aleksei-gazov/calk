@@ -1,3 +1,4 @@
+import { TotalStateType } from "./totalReducer"
 
 let initialState: InitialBasketStateType = {
   basket: [],
@@ -6,10 +7,10 @@ let initialState: InitialBasketStateType = {
 
 
 export const basketReducer = (state = initialState, action: ActionType): InitialBasketStateType => {
-   console.log(state)
+  //  console.log(state)
   switch(action.type) {
     case 'ADD_BASKET':
-       console.log(action.payload.total)
+      //  console.log(action.payload.total)
       return {...state, basket: [...state.basket, ...action.payload.total]}
     case BasketAC.IS_BASKET:
       return {...state, isBasket: action.value}
@@ -17,7 +18,7 @@ export const basketReducer = (state = initialState, action: ActionType): Initial
   }
 }
 
-export const addBasket = (total: BasketStateType[]) => ({
+export const addBasket = (total: TotalStateType[]) => ({
   type: 'ADD_BASKET',
   payload: {
 total
@@ -35,17 +36,17 @@ export enum BasketAC {
 } 
 
 export type InitialBasketStateType = {
-  basket: BasketStateType[] 
+  basket: TotalStateType[] 
   isBasket: boolean 
 }
-export type BasketStateType = {
-  productArea?: number
-  cellSize?: null | string
-  name: null | string 
-unit: null | string
-quantity: null | number
-sum: null | number
-}
+// export type BasketStateType = {
+//   productArea?: number
+//   cellSize?: null | string
+//   name: null | string 
+// unit: null | string
+// quantity: null | number
+// sum: null | number
+// }
 
 export type AddBasket = ReturnType<typeof addBasket>
 export type IsBasket = ReturnType<typeof isBasket>

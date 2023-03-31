@@ -1,23 +1,26 @@
 import { Dispatch } from "redux"
 import { v1 } from 'uuid'
-import { initialTotalStateType } from "../totalReducer"
+import { TotalStateType } from "../totalReducer"
 
 
-const initialstate: InitialTableStateType = {}
+const initialstate: InitialTableStateType = {
+  tableId: ''
+}
 
 export const tableReducer = (state = initialstate, action: ActionType): InitialTableStateType => {
   switch (action.type) {
 case 'ADD_TABLE':
+
     return {tableId: action.payload.Id}
 // case 'DELETE_CALCULATION':
 //   let stateCopy = state
 //     return stateCopy.splice(0,stateCopy.length)
-//       default: return state
+      default: return state
    }
 
 }
 //actions
-export const getPrice = (total: initialTotalStateType, total1: initialTotalStateType, total2: initialTotalStateType) => ({
+export const getPrice = (total: TotalStateType, total1:  TotalStateType, total2:  TotalStateType) => ({
   type: 'ADD_TABLE',
   payload: {
     Id: v1(),

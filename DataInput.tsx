@@ -8,7 +8,7 @@ import {useForm} from 'react-hook-form';
 import { InitialDataStateType } from './dataReducer';
 import { productDimensions, numberOfSheets, numberOfScrews, pipeQuantity, sumSheets } from './utils/frame';
 import { useDispatch } from 'react-redux';
-import { deleteCalculation } from './utils/table-reducer';
+// import { deleteCalculation } from './utils/table-reducer';
 
 //https://stackblitz.com/edit/react-hook-form-typescript?file=App.tsx
 
@@ -19,13 +19,13 @@ export const DataInput = () => {
 const [materiallFilter, setMateriallFilter] = React.useState('')
   const { register, handleSubmit } = useForm()
   const onSubmit = dataForm => {
-    // console.log('data: ', dataForm)
+     console.log('data: ', dataForm)
     productDimensions(dataForm.roofWidth, dataForm.roofLength)
     numberOfSheets(dataForm.roofWidth, dataForm.roofLength, dataForm.sheetWidth)
     sumSheets(data, dispatch)
     numberOfScrews(data, dataForm.roofWidth, dataForm.roofLength, materiallFilter, dispatch)
     pipeQuantity(data, dataForm.roofWidth, dataForm.roofLength, 1.2, 0.3, dispatch)
-    dispatch(deleteCalculation())
+    // dispatch(deleteCalculation())
   }
 let set =new Set( data.map(i=> {
   if(i.type === 'list') {

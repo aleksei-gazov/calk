@@ -15,7 +15,7 @@ const Total = () => {
 	let allTotal = total[table.tableId]
 const addBasketHandler = () => {
 	 dispatch(addBasket(allTotal))
-	 console.log('Total')
+	//  console.log(allTotal)
 }
 
 const inBasketHandler = () => {
@@ -30,14 +30,14 @@ dispatch(isBasket(true))
           
 					 {/* {table.map(i=> {
 						     allTotal = total[i.tableId] */}
-								return (
+								{/* return ( */}
 								
 												<Table
 												table={table.tableId}
 												 total={allTotal}
 												 />
 												
-								)
+								{/* ) */}
 					 {/* })}
          */}
 {/* Итого: {totalSum} */}
