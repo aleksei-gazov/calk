@@ -19,7 +19,7 @@ export const DataInput = () => {
 const [materiallFilter, setMateriallFilter] = React.useState('')
   const { register, handleSubmit } = useForm()
   const onSubmit = dataForm => {
-     console.log('data: ', dataForm)
+    //  console.log('data: ', dataForm)
     productDimensions(dataForm.roofWidth, dataForm.roofLength)
     numberOfSheets(dataForm.roofWidth, dataForm.roofLength, dataForm.sheetWidth)
     sumSheets(data, dispatch)

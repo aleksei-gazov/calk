@@ -15,7 +15,7 @@ const Total = () => {
 	let allTotal = total[table.tableId]
 const addBasketHandler = () => {
 	 dispatch(addBasket(allTotal))
-	//  console.log(allTotal)
+	  console.log('Basket')
 }
 
 const inBasketHandler = () => {
